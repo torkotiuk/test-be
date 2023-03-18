@@ -12,8 +12,20 @@ app.use('/api/v1/products', routes.products);
 
 app.get('/', (_, res) => { 
   res.send('API is running...... & https://puzzled-bear-underwear.cyclic.app//api/v1/products');
-  res.send('Test products page on https://puzzled-bear-underwear.cyclic.app//api/v1/products');
 });
 
 const PORT = process.env.PORT || 5000; 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
+const mongoose = require('mongoose');
+const { DB_HOST } = process.env;
+
+mongoose
+  .connect(DB_HOST, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('DataBase was connected successfully');
+  })
+  .catch(error => console.log(error));
