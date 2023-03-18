@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api/v1/products', routes.products);
 
 app.get('/', (_, res) => { 
-  res.send('API is running......');
+  res.send('API is running...... & https://puzzled-bear-underwear.cyclic.app//api/v1/products');
   res.send('Test products page on https://puzzled-bear-underwear.cyclic.app//api/v1/products');
 });
 
