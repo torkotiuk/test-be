@@ -14,9 +14,7 @@ app.get('/', (_, res) => {
   res.send('API is running...... & https://puzzled-bear-underwear.cyclic.app//api/v1/products');
 });
 
-const PORT = process.env.PORT || 5000; 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
-
+// 
 const mongoose = require('mongoose');
 const { DB_HOST } = process.env;
 
@@ -29,3 +27,8 @@ mongoose
     console.log('DataBase was connected successfully');
   })
   .catch(error => console.log(error));
+// 
+
+const PORT = process.env.PORT || 5000; 
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
