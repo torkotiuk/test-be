@@ -1,0 +1,1 @@
+# make variables PORT, DB_HOST & write them to .env before starting server
