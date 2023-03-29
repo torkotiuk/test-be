@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const routes = require('./routes');
+const mongoose = require('mongoose');
+const { DB_HOST } = process.env;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 dotenv.config();
@@ -16,20 +19,12 @@ app.get('/', (_, res) => {
   );
 });
 
-//
-const mongoose = require('mongoose');
-const { DB_HOST } = process.env;
-
 mongoose
   .connect(DB_HOST, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => {
-    console.log('DataBase was connected successfully');
-  })
+  .then(console.log('DataBase was connected successfully'))
   .catch(error => console.log(error));
-//
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
