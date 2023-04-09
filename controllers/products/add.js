@@ -26,7 +26,7 @@ const add = async (req, res, next) => {
       data: { result },
     });
   } catch (error) {
-    if (error.code === i1000) {
+    if (error.code === 11000) {
       error.code = 400;
     }
     next(error);
